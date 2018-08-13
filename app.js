@@ -20,7 +20,8 @@ app.use(express.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+// node_modules are added to path, we did this not the EXpress Generator did this for us
+app.use(express.static(path.join(__dirname, "node_modules")));
 app.use('/', indexRouter);
 //app.use('/users', usersRouter);
 
